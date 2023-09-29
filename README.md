@@ -55,10 +55,6 @@ CREATE INDEX idx_payment_date ON payment(payment_date);
 
 ![sql3](https://github.com/OhotinDY/sdb-12-05/blob/main/index7.jpg)
 
-
-
-![sql3](https://github.com/OhotinDY/sdb-12-05/blob/main/index8.jpg)
-
 - Скорректированный запрос, его выполнение, проверка использования индекса помощью EXPLAIN и выполнение EXPLAIN ANALYZE:
 
 ```sql
@@ -66,5 +62,7 @@ SELECT DISTINCT CONCAT(c.last_name, ' ', c.first_name), SUM(p.amount) OVER(PARTI
 FROM payment p USE INDEX (idx_payment_date), customer c 
 WHERE payment_date >= '2005-07-30' and payment_date < '2005-07-31' AND p.customer_id = c.customer_id;
 ```
+
+![sql3](https://github.com/OhotinDY/sdb-12-05/blob/main/index8.jpg)
 
 ![sql3](https://github.com/OhotinDY/sdb-12-05/blob/main/index.jpg)
