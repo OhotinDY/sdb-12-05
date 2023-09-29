@@ -9,7 +9,7 @@ SELECT SUM(index_length) / SUM(data_length) * 100 AS percent_ratio
 FROM information_schema.tables
 WHERE table_schema = 'sakila';
 ```
-![sql3]()
+![sql3](https://github.com/OhotinDY/sdb-12-05/blob/main/index.jpg)
 
 
 ### Задание 2
