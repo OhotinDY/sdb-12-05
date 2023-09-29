@@ -47,13 +47,15 @@ WHERE DATE(p.payment_date) = '2005-07-30' AND p.customer_id = c.customer_id;
 
 ![sql3](https://github.com/OhotinDY/sdb-12-05/blob/main/index6.jpg)
 
-![sql3](https://github.com/OhotinDY/sdb-12-05/blob/main/index7.jpg)
-
 - Создание индекса idx_payment_date для поля payment_date таблицы payment:
 
 ```sql
 CREATE INDEX idx_payment_date ON payment(payment_date);
 ```
+
+![sql3](https://github.com/OhotinDY/sdb-12-05/blob/main/index7.jpg)
+
+
 
 ![sql3](https://github.com/OhotinDY/sdb-12-05/blob/main/index8.jpg)
 
