@@ -34,9 +34,9 @@ from payment p, rental r, customer c, inventory i, film f
 where date(p.payment_date) = '2005-07-30' and p.payment_date = r.rental_date and r.customer_id = c.customer_id and i.inventory_id = r.inventory_id;
 ```
 
-![sql3](https://github.com/OhotinDY/sdb-12-05/blob/main/index1.jpg)
+![sql3](https://github.com/OhotinDY/sdb-12-05/blob/main/index1.png)
 
-![sql3](https://github.com/OhotinDY/sdb-12-05/blob/main/index2.jpg)
+![sql3](https://github.com/OhotinDY/sdb-12-05/blob/main/index2.png)
 
 - Выполнение EXPLAIN ANALYZE оптимизированного запроса и сам запрос:
 
@@ -47,13 +47,13 @@ from payment p, rental r, customer c, inventory i
 where date(p.payment_date) = '2005-07-30' and p.payment_date = r.rental_date and r.customer_id = c.customer_id and i.inventory_id = r.inventory_id;
 ```
 
-![sql3](https://github.com/OhotinDY/sdb-12-05/blob/main/index3.jpg)
+![sql3](https://github.com/OhotinDY/sdb-12-05/blob/main/index3.png)
 
-![sql3](https://github.com/OhotinDY/sdb-12-05/blob/main/index4.jpg)
+![sql3](https://github.com/OhotinDY/sdb-12-05/blob/main/index4.png)
 
 - Проверка существующих индексов:
 
-![sql3](https://github.com/OhotinDY/sdb-12-05/blob/main/index5.jpg)
+![sql3](https://github.com/OhotinDY/sdb-12-05/blob/main/index5.png)
 
 - Создание индекса idx_payment_date для поля payment_date таблицы payment:
 
@@ -61,11 +61,11 @@ where date(p.payment_date) = '2005-07-30' and p.payment_date = r.rental_date and
 CREATE INDEX idx_payment_date ON payment(payment_date);
 ```
 
-![sql3](https://github.com/OhotinDY/sdb-12-05/blob/main/index6.jpg)
+![sql3](https://github.com/OhotinDY/sdb-12-05/blob/main/index6.png)
 
 - Проверка использования созданного индекса при выполнении запроса с помощью EXPLAIN:
 
-![sql3](https://github.com/OhotinDY/sdb-12-05/blob/main/index7.jpg)
+![sql3](https://github.com/OhotinDY/sdb-12-05/blob/main/index7.png)
 
 - Скорректированный запрос, его выполнение, проверка использования индекса помощью EXPLAIN и выполнение EXPLAIN ANALYZE:
 
@@ -76,6 +76,6 @@ from payment p use index (idx_payment_date), rental r, customer c, inventory i
 where date(p.payment_date) = '2005-07-30' and p.payment_date = r.rental_date and r.customer_id = c.customer_id and i.inventory_id = r.inventory_id;
 ```
 
-![sql3](https://github.com/OhotinDY/sdb-12-05/blob/main/index8.jpg)
+![sql3](https://github.com/OhotinDY/sdb-12-05/blob/main/index8.png)
 
-![sql3](https://github.com/OhotinDY/sdb-12-05/blob/main/index9.jpg)
+![sql3](https://github.com/OhotinDY/sdb-12-05/blob/main/index9.png)
